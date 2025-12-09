@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adexora Premium Rewards</title>
+  <script src='https://cdn.tailwindcss.com'></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00c853;
+      --primary-dark: #009624;
+      --secondary: #00b4d8;
+      --secondary-dark: #008ba3;
+      --dark: #121212;
+      --card-bg: #1f1f1f;
+      --light: #f5f5f5;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: var(--light);
+      background-image:
+        radial-gradient(white, rgba(255,255,255,0) 1.5px),
+        radial-gradient(white, rgba(255,255,255,0) 1.5px),
+        radial-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0) 1.5px);
+      background-size: 120px 120px, 120px 120px, 100px 100px;
+      animation: moveStars 60s linear infinite;
+    }
+    @keyframes moveStars {
+      from { background-position: 0 0, 30px 60px, 50px 50px; }
+      to { background-position: 360px 360px, 390px 420px, 410px 410px; }
+    }
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .header {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      padding: 25px 20px;
+      text-align: center;
+    }
+    .header h1 { font-size: 26px; font-weight: 700; }
+    .content { padding: 25px; }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 15px 10px;
+      width: 45%;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-card h3 { font-size: 14px; margin-bottom: 5px; color: #aaa; }
+    .stat-card .value { font-size: 24px; font-weight: 700; color: var(--primary); }
+    .progress-container { margin: 25px 0; text-align: center; }
+    .progress-label { margin-bottom: 10px; display: flex; justify-content: space-between; font-size: 14px; }
+    .progress-bar {
+      height: 12px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 10px;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+    .btn-3d {
+      position: relative;
+      padding: 16px 20px;
+      border: none;
+      border-radius: 15px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      color: white;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .btn-primary { background: linear-gradient(135deg,#00f5d4,#00b4d8); box-shadow: 0 6px 0 #008ba3; }
+    .btn-primary:hover { transform: translateY(2px); box-shadow: 0 4px 0 #008ba3;}
+    .btn-primary:active { transform: translateY(6px); box-shadow: 0 0 0 #008ba3; }
+    #ad-notification { transition: opacity .3s ease, transform .3s ease; }
+  </style>
+<link rel="me" href="https://www.blogger.com/profile/15474370074613459806" />
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+<link rel="me" href="https://www.blogger.com/profile/15474370074613459806" />
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+<link rel="me" href="https://www.blogger.com/profile/15474370074613459806" />
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+  <div id="ad-notification" class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-full shadow-lg opacity-0 transform translate-y-5 pointer-events-none">
+    Ad completed!
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <h1>Adexora Premium Rewards</h1>
+    </div>
+
+    <div class="content">
+      <div class="stats">
+        <div class="stat-card">
+          <h3>Watched Ads</h3>
+          <div class="value" id="watched-ads">0</div>
+        </div>
+        <div class="stat-card">
+          <h3>Earned Points</h3>
+          <div class="value" id="earned-points">0.00</div>
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-label">
+          <span>Progress to Bonus</span>
+          <span id="ads-progress">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="flex flex-col space-y-4 mt-6">
+        <button class="btn-3d btn-primary" id="watch-ad-btn">🎬 Show Ad (+0.50)</button>
+        <button class="btn-3d btn-primary" id="auto-ad-btn">🔁 Start Auto Ads</button>
+        <button class="btn-3d btn-primary" id="stop-auto-btn">⏹ Stop Auto Ads</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Adexora Ad Network Script -->
+  <script src="https://adexora.com/cdn/ads.js?id=1041"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const POINTS_PER_AD = 0.50;
+      const ADS_FOR_BONUS = 10;
+
+      let watchedAdsCount = parseInt(localStorage.getItem('adexoraWatchedAds')) || 0;
+      let earnedPoints = parseFloat(localStorage.getItem('adexoraEarnedPoints')) || 0;
+      let autoAdsRunning = false;
+      let adInProgress = false;
+
+      const watchedAdsEl = document.getElementById('watched-ads');
+      const earnedPointsEl = document.getElementById('earned-points');
+      const adsProgressEl = document.getElementById('ads-progress');
+      const progressFillEl = document.getElementById('progress-fill');
+      const adNotificationEl = document.getElementById('ad-notification');
+      const watchAdBtn = document.getElementById('watch-ad-btn');
+      const autoAdBtn = document.getElementById('auto-ad-btn');
+      const stopAutoBtn = document.getElementById('stop-auto-btn');
+
+      function saveData() {
+        localStorage.setItem('adexoraWatchedAds', watchedAdsCount);
+        localStorage.setItem('adexoraEarnedPoints', earnedPoints);
+      }
+      
+      function updateUI() {
+        watchedAdsEl.textContent = watchedAdsCount;
+        earnedPointsEl.textContent = earnedPoints.toFixed(2);
+        const progress = (watchedAdsCount % ADS_FOR_BONUS) / ADS_FOR_BONUS * 100;
+        adsProgressEl.textContent = `${Math.round(progress)}%`;
+        progressFillEl.style.width = `${progress}%`;
+        saveData();
+      }
+
+      function showNotification(msg, isError = false) {
+        adNotificationEl.textContent = msg;
+        adNotificationEl.classList.toggle('bg-red-600', isError);
+        adNotificationEl.classList.toggle('bg-green-600', !isError);
+        adNotificationEl.classList.remove('opacity-0', 'translate-y-5');
+        setTimeout(() => adNotificationEl.classList.add('opacity-0', 'translate-y-5'), 3000);
+      }
+
+      function addReward() {
+        watchedAdsCount++;
+        earnedPoints += POINTS_PER_AD;
+        let bonusPoints = 0;
+        
+        if (watchedAdsCount > 0 && watchedAdsCount % ADS_FOR_BONUS === 0) {
+            bonusPoints = 1.00;
+            earnedPoints += bonusPoints;
+            showNotification(`Bonus! +${bonusPoints.toFixed(2)} points added`);
+        } else {
+            showNotification(`Ad completed! +${POINTS_PER_AD.toFixed(2)} points added`);
+        }
+        
+        updateUI();
+      }
+
+      function watchAd(callback) {
+        if (adInProgress) {
+          if (callback) callback();
+          return;
+        }
+
+        if (typeof window.showAdexora === 'function') {
+          adInProgress = true;
+          window.showAdexora()
+            .then(() => {
+              addReward();
+            })
+            .catch(() => {
+              showNotification("Adexora ad failed to load.", true);
+            })
+            .finally(() => {
+              adInProgress = false;
+              if (callback) setTimeout(callback, 1000); // Small delay before next ad
+            });
+        } else {
+          showNotification("Adexora ad network is not available.", true);
+          if (callback) callback();
+        }
+      }
+      
+      function startAutoAds() {
+        if (autoAdsRunning) return;
+        autoAdsRunning = true;
+        autoAdBtn.textContent = "Auto Ads Running...";
+        autoAdBtn.disabled = true;
+        stopAutoBtn.disabled = false;
+        showNotification("Auto Ads Started");
+        runAutoAds();
+      }
+
+      function runAutoAds() {
+        if (!autoAdsRunning) return;
+        watchAd(() => runAutoAds());
+      }
+
+      function stopAutoAds() {
+        if (!autoAdsRunning) return;
+        autoAdsRunning = false;
+        autoAdBtn.textContent = "🔁 Start Auto Ads";
+        autoAdBtn.disabled = false;
+        stopAutoBtn.disabled = true;
+        showNotification("Auto Ads Stopped");
+      }
+
+      // Event Listeners
+      watchAdBtn.addEventListener('click', () => watchAd(null));
+      autoAdBtn.addEventListener('click', startAutoAds);
+      stopAutoBtn.addEventListener('click', stopAutoAds);
+
+      // Initial Setup
+      stopAutoBtn.disabled = true;
+      updateUI();
+    });
+  </script>
+</body>
+</html>
