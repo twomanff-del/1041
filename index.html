@@ -1,268 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>👊</title>
-  <script src='https://cdn.tailwindcss.com'></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #00c853;
-      --primary-dark: #009624;
-      --secondary: #00b4d8;
-      --secondary-dark: #008ba3;
-      --dark: #121212;
-      --card-bg: #1f1f1f;
-      --light: #f5f5f5;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #000;
-      color: var(--light);
-      background-image:
-        radial-gradient(white, rgba(255,255,255,0) 1.5px),
-        radial-gradient(white, rgba(255,255,255,0) 1.5px),
-        radial-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0) 1.5px);
-      background-size: 120px 120px, 120px 120px, 100px 100px;
-      animation: moveStars 60s linear infinite;
-    }
-    @keyframes moveStars {
-      from { background-position: 0 0, 30px 60px, 50px 50px; }
-      to { background-position: 360px 360px, 390px 420px, 410px 410px; }
-    }
-    .container {
-      width: 100%;
-      max-width: 500px;
-      background: var(--card-bg);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .header {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      padding: 25px 20px;
-      text-align: center;
-    }
-    .header h1 { font-size: 26px; font-weight: 700; }
-    .content { padding: 25px; }
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      margin: 20px 0;
-      text-align: center;
-    }
-    .stat-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 15px;
-      padding: 15px 10px;
-      width: 45%;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .stat-card h3 { font-size: 14px; margin-bottom: 5px; color: #aaa; }
-    .stat-card .value { font-size: 24px; font-weight: 700; color: var(--primary); }
-    .progress-container { margin: 25px 0; text-align: center; }
-    .progress-label { margin-bottom: 10px; display: flex; justify-content: space-between; font-size: 14px; }
-    .progress-bar {
-      height: 12px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      border-radius: 10px;
-      width: 0%;
-      transition: width 0.5s ease;
-    }
-    .btn-3d {
-      position: relative;
-      padding: 16px 20px;
-      border: none;
-      border-radius: 15px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      color: white;
-      text-align: center;
-      transition: all 0.2s ease;
-    }
-    .btn-primary { background: linear-gradient(135deg,#00f5d4,#00b4d8); box-shadow: 0 6px 0 #008ba3; }
-    .btn-primary:hover { transform: translateY(2px); box-shadow: 0 4px 0 #008ba3;}
-    .btn-primary:active { transform: translateY(6px); box-shadow: 0 0 0 #008ba3; }
-    #ad-notification { transition: opacity .3s ease, transform .3s ease; }
-  </style>
-<link rel="me" href="https://www.blogger.com/profile/15474370074613459806" />
-<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
-<meta name='google-adsense-platform-domain' content='blogspot.com'/>
-<link rel="me" href="https://www.blogger.com/profile/15474370074613459806" />
-<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
-<meta name='google-adsense-platform-domain' content='blogspot.com'/>
-<link rel="me" href="https://www.blogger.com/profile/15474370074613459806" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Bot - Maruf</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script src='//libtl.com/sdk.js' data-zone='11705676' data-sdk='show_11705676'></script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+            transition: 0.2s ease;
+            cursor: pointer;
+        }
+
+        .card:active { transform: scale(0.97); }
+
+        .dynamic-island {
+            background: #0f172a;
+            color: white;
+            border-radius: 50px;
+            width: 170px;
+            height: 48px;
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s ease;
+            z-index: 50;
+        }
+
+        .dynamic-island.active {
+            width: 92%;
+            max-width: 360px;
+            height: 85px;
+            border-radius: 28px;
+            padding: 0 20px;
+            justify-content: space-between;
+        }
+
+        .timer-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 3px solid #10b981;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .hidden { display: none; }
+        .opacity-low { opacity: 0.5; pointer-events: none; }
+    </style>
 <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
 <meta name='google-adsense-platform-domain' content='blogspot.com'/>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4">
+<body>
 
-  <div id="ad-notification" class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-full shadow-lg opacity-0 transform translate-y-5 pointer-events-none">
-    Ad completed!
-  </div>
+    <div class="relative w-full max-w-md h-screen flex flex-col justify-between py-8 px-6">
+        
+        <!-- Dynamic Island -->
+        <div id="island" class="dynamic-island">
+            <div id="idleState" class="flex items-center gap-2 text-sm font-semibold">
+                <div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
+                System Ready
+            </div>
+            <div id="activeState" class="hidden w-full flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div id="islandIcon" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div>
+                        <p id="islandTitle" class="text-[10px] uppercase text-gray-400 font-bold">Status</p>
+                        <p id="islandText" class="text-sm font-bold">Processing...</p>
+                    </div>
+                </div>
+                <div id="islandAction"></div>
+            </div>
+        </div>
 
-  <div class="container">
-    <div class="header">
-      <h1>Adexora Premium Rewards</h1>
+        <!-- Header -->
+        <div class="mt-24 text-center">
+            <h1 class="text-4xl font-black text-slate-800">Premium Bot</h1>
+            <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Monetag High CPM</p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex-1 flex flex-col justify-center gap-6">
+            
+            <!-- Watch Ad -->
+            <button onclick="manualAd()" class="card p-5 flex items-center justify-between border-l-4 border-blue-500">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-2xl">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-lg font-bold text-slate-800">Watch 1 Ad</h3>
+                        <p class="text-xs text-slate-500">Manual Mode (Single)</p>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-right text-slate-300 text-xl"></i>
+            </button>
+
+            <!-- Divider -->
+            <div class="flex items-center gap-3">
+                <div class="h-px bg-gray-300 flex-1"></div>
+                <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Auto Loop</span>
+                <div class="h-px bg-gray-300 flex-1"></div>
+            </div>
+
+            <!-- Auto ON -->
+            <button onclick="enableAutoMode()" id="btnOn" class="card p-5 flex items-center justify-between border-l-4 border-emerald-500">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 text-2xl">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-lg font-bold text-slate-800">Auto Ads ON</h3>
+                        <p class="text-xs text-slate-500">Auto Refresh & Show</p>
+                    </div>
+                </div>
+            </button>
+
+            <!-- Auto OFF -->
+            <button onclick="disableAutoMode()" id="btnOff" class="card p-5 flex items-center justify-between border-l-4 border-rose-500 opacity-low">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 bg-rose-100 rounded-2xl flex items-center justify-center text-rose-600 text-2xl">
+                        <i class="fas fa-power-off"></i>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-lg font-bold text-slate-800">Auto Ads OFF</h3>
+                        <p class="text-xs text-slate-500">Stop System</p>
+                    </div>
+                </div>
+            </button>
+
+        </div>
+
+        <p class="text-center text-[10px] text-slate-400 font-bold uppercase tracking-[3px]">
+            Developer Maruf
+        </p>
     </div>
 
-    <div class="content">
-      <div class="stats">
-        <div class="stat-card">
-          <h3>Watched Ads</h3>
-          <div class="value" id="watched-ads">0</div>
-        </div>
-        <div class="stat-card">
-          <h3>Earned Points</h3>
-          <div class="value" id="earned-points">0.00</div>
-        </div>
-      </div>
+    <script>
+        let countdownInterval = null;
+        let timeLeft = 15;
 
-      <div class="progress-container">
-        <div class="progress-label">
-          <span>Progress to Bonus</span>
-          <span id="ads-progress">0%</span>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill" id="progress-fill"></div>
-        </div>
-      </div>
+        // 1. পেজ লোড হলে চেক করবে অটো মোড অন আছে কিনা
+        window.addEventListener('load', function() {
+            const isAutoOn = localStorage.getItem('bot_auto_active');
+            
+            if(isAutoOn === 'true') {
+                // UI আপডেট
+                document.getElementById("btnOn").classList.add("opacity-low");
+                document.getElementById("btnOff").classList.remove("opacity-low");
+                
+                // আইল্যান্ড অ্যাক্টিভ করা
+                activateIsland("Auto Mode", "New Ad Incoming...", "fas fa-sync", true, true);
+                
+                // অ্যাড শো করা
+                triggerAd();
+                
+                // টাইমার চালু করা
+                startCountdown();
+            }
+        });
 
-      <div class="flex flex-col space-y-4 mt-6">
-        <button class="btn-3d btn-primary" id="watch-ad-btn">👊 Show Ad (+0.50)</button>
-        <button class="btn-3d btn-primary" id="auto-ad-btn">🔁 Start Auto Ads</button>
-        <button class="btn-3d btn-primary" id="stop-auto-btn">⏹ Stop Auto Ads</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Adexora Ad Network Script -->
-  <script src="https://adexora.com/cdn/ads.js?id=1041"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const POINTS_PER_AD = 0.50;
-      const ADS_FOR_BONUS = 10;
-
-      let watchedAdsCount = parseInt(localStorage.getItem('adexoraWatchedAds')) || 0;
-      let earnedPoints = parseFloat(localStorage.getItem('adexoraEarnedPoints')) || 0;
-      let autoAdsRunning = false;
-      let adInProgress = false;
-
-      const watchedAdsEl = document.getElementById('watched-ads');
-      const earnedPointsEl = document.getElementById('earned-points');
-      const adsProgressEl = document.getElementById('ads-progress');
-      const progressFillEl = document.getElementById('progress-fill');
-      const adNotificationEl = document.getElementById('ad-notification');
-      const watchAdBtn = document.getElementById('watch-ad-btn');
-      const autoAdBtn = document.getElementById('auto-ad-btn');
-      const stopAutoBtn = document.getElementById('stop-auto-btn');
-
-      function saveData() {
-        localStorage.setItem('adexoraWatchedAds', watchedAdsCount);
-        localStorage.setItem('adexoraEarnedPoints', earnedPoints);
-      }
-      
-      function updateUI() {
-        watchedAdsEl.textContent = watchedAdsCount;
-        earnedPointsEl.textContent = earnedPoints.toFixed(2);
-        const progress = (watchedAdsCount % ADS_FOR_BONUS) / ADS_FOR_BONUS * 100;
-        adsProgressEl.textContent = `${Math.round(progress)}%`;
-        progressFillEl.style.width = `${progress}%`;
-        saveData();
-      }
-
-      function showNotification(msg, isError = false) {
-        adNotificationEl.textContent = msg;
-        adNotificationEl.classList.toggle('bg-red-600', isError);
-        adNotificationEl.classList.toggle('bg-green-600', !isError);
-        adNotificationEl.classList.remove('opacity-0', 'translate-y-5');
-        setTimeout(() => adNotificationEl.classList.add('opacity-0', 'translate-y-5'), 3000);
-      }
-
-      function addReward() {
-        watchedAdsCount++;
-        earnedPoints += POINTS_PER_AD;
-        let bonusPoints = 0;
-        
-        if (watchedAdsCount > 0 && watchedAdsCount % ADS_FOR_BONUS === 0) {
-            bonusPoints = 1.00;
-            earnedPoints += bonusPoints;
-            showNotification(`Bonus! +${bonusPoints.toFixed(2)} points added`);
-        } else {
-            showNotification(`Ad completed! +${POINTS_PER_AD.toFixed(2)} points added`);
-        }
-        
-        updateUI();
-      }
-
-      function watchAd(callback) {
-        if (adInProgress) {
-          if (callback) callback();
-          return;
+        // 2. অ্যাড শো করার ফাংশন
+        function triggerAd(retry = 0) {
+            if (typeof show_11705676 === "function") {
+                show_11705676();
+                console.log("Ad Triggered");
+            } else {
+                if(retry < 8) {
+                    setTimeout(() => triggerAd(retry + 1), 500);
+                }
+            }
         }
 
-        if (typeof window.showAdexora === 'function') {
-          adInProgress = true;
-          window.showAdexora()
-            .then(() => {
-              addReward();
-            })
-            .catch(() => {
-              showNotification("Adexora ad failed to load.", true);
-            })
-            .finally(() => {
-              adInProgress = false;
-              if (callback) setTimeout(callback, 1000); // Small delay before next ad
-            });
-        } else {
-          showNotification("Adexora ad network is not available.", true);
-          if (callback) callback();
+        // 3. ডাইনামিক আইল্যান্ড ফাংশন
+        function activateIsland(title, text, icon, spin = false, withTimer = false) {
+            const island = document.getElementById("island");
+            const idle = document.getElementById("idleState");
+            const active = document.getElementById("activeState");
+
+            island.classList.add("active");
+            idle.classList.add("hidden");
+            active.classList.remove("hidden");
+
+            document.getElementById("islandTitle").innerText = title;
+            document.getElementById("islandText").innerText = text;
+
+            let iconHTML = `<i class="${icon} ${spin ? 'fa-spin' : ''}"></i>`;
+            document.getElementById("islandIcon").innerHTML = iconHTML;
+
+            if (withTimer) {
+                document.getElementById("islandAction").innerHTML = 
+                    `<div id="timerDisplay" class="timer-circle">${timeLeft}</div>`;
+            } else {
+                document.getElementById("islandAction").innerHTML = "";
+            }
         }
-      }
-      
-      function startAutoAds() {
-        if (autoAdsRunning) return;
-        autoAdsRunning = true;
-        autoAdBtn.textContent = "Auto Ads Running...";
-        autoAdBtn.disabled = true;
-        stopAutoBtn.disabled = false;
-        showNotification("Auto Ads Started");
-        runAutoAds();
-      }
 
-      function runAutoAds() {
-        if (!autoAdsRunning) return;
-        watchAd(() => runAutoAds());
-      }
+        function resetIsland() {
+            document.getElementById("island").classList.remove("active");
+            document.getElementById("idleState").classList.remove("hidden");
+            document.getElementById("activeState").classList.add("hidden");
+        }
 
-      function stopAutoAds() {
-        if (!autoAdsRunning) return;
-        autoAdsRunning = false;
-        autoAdBtn.textContent = "🔁 Start Auto Ads";
-        autoAdBtn.disabled = false;
-        stopAutoBtn.disabled = true;
-        showNotification("Auto Ads Stopped");
-      }
+        // 4. ম্যানুয়াল মোড
+        function manualAd() {
+            disableAutoMode(); // অটো মোড বন্ধ করে দিবে
+            activateIsland("Manual", "Loading Ad...", "fas fa-eye", false, false);
+            triggerAd();
+            setTimeout(() => {
+                activateIsland("Success", "Ad Displayed", "fas fa-check", false, false);
+                setTimeout(resetIsland, 2000);
+            }, 1500);
+        }
 
-      // Event Listeners
-      watchAdBtn.addEventListener('click', () => watchAd(null));
-      autoAdBtn.addEventListener('click', startAutoAds);
-      stopAutoBtn.addEventListener('click', stopAutoAds);
+        // 5. অটো মোড অন করা
+        function enableAutoMode() {
+            localStorage.setItem('bot_auto_active', 'true');
+            location.reload(); // সাথে সাথে রিলোড দিয়ে নতুন করে শুরু করবে
+        }
 
-      // Initial Setup
-      stopAutoBtn.disabled = true;
-      updateUI();
-    });
-  </script>
+        // 6. অটো মোড অফ করা
+        function disableAutoMode() {
+            localStorage.setItem('bot_auto_active', 'false');
+            clearInterval(countdownInterval);
+            resetIsland();
+            
+            document.getElementById("btnOn").classList.remove("opacity-low");
+            document.getElementById("btnOff").classList.add("opacity-low");
+        }
+
+        // 7. কাউন্টডাউন টাইমার (টাইমার শেষ হলে পেজ রিলোড দিবে)
+        function startCountdown() {
+            clearInterval(countdownInterval);
+            timeLeft = 5;
+            
+            countdownInterval = setInterval(() => {
+                timeLeft--;
+                
+                // টাইমার আপডেট
+                const timerDisplay = document.getElementById("timerDisplay");
+                if(timerDisplay) timerDisplay.innerText = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    // এখানে পেজ রিলোড হবে যাতে নতুন ইম্প্রেশন কাউন্ট হয়
+                    location.reload(); 
+                }
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
