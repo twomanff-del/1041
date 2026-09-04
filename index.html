@@ -1,279 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Bot - Maruf</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Gigapub Ad Viewer - Lite</title>
+  
+  <style>
+    /* ⚡ Pure CSS - ০% এক্সট্রা CPU/RAM */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #020617; color: #fff; font-family: sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 1rem; overflow: hidden; user-select: none; }
     
-    <script src='//libtl.com/sdk.js' data-zone='11705676' data-sdk='show_11705676'></script>
+    .btn-reset { position: absolute; top: 15px; right: 15px; width: 45px; height: 45px; background: #dc2626; color: #ffffff; border: none; border-radius: 50%; font-size: 20px; cursor: pointer; z-index: 100; transition: transform 0.1s, background 0.2s; box-shadow: 0 4px 10px rgba(220,38,38,0.3); }
+    .btn-reset:active { background: #b91c1c; transform: scale(0.85); }
 
-    <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: #f3f4f6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
+    .card { background: #0f172a; border-radius: 24px; padding: 30px; border: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 400px; text-align: center; }
+    .space-y-6 > * + * { margin-top: 1.5rem; }
+    
+    .grid { display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 0.75rem; }
+    .stat-box { background: rgba(30, 41, 59, 0.5); padding: 12px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+    
+    .text-xl { font-size: 1.25rem; line-height: 1.75rem; font-weight: 700; }
+    .text-blue-400 { color: #60a5fa; }
+    .text-green-400 { color: #4ade80; }
+    
+    .text-\[10px\] { font-size: 10px; text-transform: uppercase; color: #9ca3af; }
+    #status { font-size: 14px; font-weight: 500; height: 20px; color: #9ca3af; transition: color 0.1s; }
 
-        .card {
-            background: #ffffff;
-            border-radius: 28px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-            transition: 0.2s ease;
-            cursor: pointer;
-        }
-
-        .card:active { transform: scale(0.97); }
-
-        .dynamic-island {
-            background: #0f172a;
-            color: white;
-            border-radius: 50px;
-            width: 170px;
-            height: 48px;
-            position: absolute;
-            top: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.4s ease;
-            z-index: 50;
-        }
-
-        .dynamic-island.active {
-            width: 92%;
-            max-width: 360px;
-            height: 85px;
-            border-radius: 28px;
-            padding: 0 20px;
-            justify-content: space-between;
-        }
-
-        .timer-circle {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            border: 3px solid #10b981;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .hidden { display: none; }
-        .opacity-low { opacity: 0.5; pointer-events: none; }
-    </style>
-<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
-<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+    .btn-main { width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, #22c55e, #15803d); font-weight: 800; font-size: 18px; box-shadow: 0 10px 25px rgba(34,197,94,0.3); transition: 0.1s; border: none; color: white; margin: 20px auto; cursor: pointer; display: block; }
+    .btn-main:active { transform: scale(0.92); }
+    
+    .text-red-400 { color: #f87171 !important; }
+  </style>
 </head>
 <body>
 
-    <div class="relative w-full max-w-md h-screen flex flex-col justify-between py-8 px-6">
-        
-        <!-- Dynamic Island -->
-        <div id="island" class="dynamic-island">
-            <div id="idleState" class="flex items-center gap-2 text-sm font-semibold">
-                <div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
-                System Ready
-            </div>
-            <div id="activeState" class="hidden w-full flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div id="islandIcon" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center">
-                        <i class="fas fa-play"></i>
-                    </div>
-                    <div>
-                        <p id="islandTitle" class="text-[10px] uppercase text-gray-400 font-bold">Status</p>
-                        <p id="islandText" class="text-sm font-bold">Processing...</p>
-                    </div>
-                </div>
-                <div id="islandAction"></div>
-            </div>
-        </div>
+  <!-- গোল রিসেট বাটন (Instant Clear) -->
+  <button onclick="instantReset()" class="btn-reset" title="Instant Reset">🔄</button>
 
-        <!-- Header -->
-        <div class="mt-24 text-center">
-            <h1 class="text-4xl font-black text-slate-800">Premium Bot</h1>
-            <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Monetag High CPM</p>
-        </div>
-
-        <!-- Buttons -->
-        <div class="flex-1 flex flex-col justify-center gap-6">
-            
-            <!-- Watch Ad -->
-            <button onclick="manualAd()" class="card p-5 flex items-center justify-between border-l-4 border-blue-500">
-                <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-2xl">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <div class="text-left">
-                        <h3 class="text-lg font-bold text-slate-800">Watch 1 Ad</h3>
-                        <p class="text-xs text-slate-500">Manual Mode (Single)</p>
-                    </div>
-                </div>
-                <i class="fas fa-chevron-right text-slate-300 text-xl"></i>
-            </button>
-
-            <!-- Divider -->
-            <div class="flex items-center gap-3">
-                <div class="h-px bg-gray-300 flex-1"></div>
-                <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Auto Loop</span>
-                <div class="h-px bg-gray-300 flex-1"></div>
-            </div>
-
-            <!-- Auto ON -->
-            <button onclick="enableAutoMode()" id="btnOn" class="card p-5 flex items-center justify-between border-l-4 border-emerald-500">
-                <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 text-2xl">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <div class="text-left">
-                        <h3 class="text-lg font-bold text-slate-800">Auto Ads ON</h3>
-                        <p class="text-xs text-slate-500">Auto Refresh & Show</p>
-                    </div>
-                </div>
-            </button>
-
-            <!-- Auto OFF -->
-            <button onclick="disableAutoMode()" id="btnOff" class="card p-5 flex items-center justify-between border-l-4 border-rose-500 opacity-low">
-                <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 bg-rose-100 rounded-2xl flex items-center justify-center text-rose-600 text-2xl">
-                        <i class="fas fa-power-off"></i>
-                    </div>
-                    <div class="text-left">
-                        <h3 class="text-lg font-bold text-slate-800">Auto Ads OFF</h3>
-                        <p class="text-xs text-slate-500">Stop System</p>
-                    </div>
-                </div>
-            </button>
-
-        </div>
-
-        <p class="text-center text-[10px] text-slate-400 font-bold uppercase tracking-[3px]">
-            Developer Maruf
-        </p>
+  <div class="card space-y-6">
+    <div class="grid">
+      <div class="stat-box">
+        <div class="text-xl text-green-400" id="adCount">0</div>
+        <div class="text-[10px]">Ad Counter</div>
+      </div>
     </div>
 
-    <script>
-        let countdownInterval = null;
-        let timeLeft = 15;
+    <p id="status">Checking SDK...</p>
 
-        // 1. পেজ লোড হলে চেক করবে অটো মোড অন আছে কিনা
-        window.addEventListener('load', function() {
-            const isAutoOn = localStorage.getItem('bot_auto_active');
-            
-            if(isAutoOn === 'true') {
-                // UI আপডেট
-                document.getElementById("btnOn").classList.add("opacity-low");
-                document.getElementById("btnOff").classList.remove("opacity-low");
-                
-                // আইল্যান্ড অ্যাক্টিভ করা
-                activateIsland("Auto Mode", "New Ad Incoming...", "fas fa-sync", true, true);
-                
-                // অ্যাড শো করা
-                triggerAd();
-                
-                // টাইমার চালু করা
-                startCountdown();
-            }
+    <button id="watchBtn" class="btn-main">WATCH AD</button>
+  </div>
+
+  <!-- Gigapub Ad Script (স্থায়ীভাবে থাকবে, যাতে অ্যাড আসা বন্ধ না হয়) -->
+  <script src="https://ad.gigapub.tech/script?id=7245" async></script>
+
+  <script>
+    let adCount = parseInt(localStorage.getItem('tg_adCount')) || 0;
+    let checkSDKInterval = null;
+    let sdkCheckCount = 0;
+
+    const statusEl = document.getElementById('status');
+
+    function updateUI() {
+      document.getElementById('adCount').innerText = adCount;
+      localStorage.setItem('tg_adCount', adCount);
+    }
+
+    // 🚀 INSTANT Reset Logic (No Reload, No Script Removing)
+    function instantReset() {
+      // ১. সাথে সাথে জিরো করে দেওয়া হলো (Direct Clear)
+      adCount = 0;
+      localStorage.clear();
+      updateUI();
+
+      // ২. ইনস্ট্যান্ট স্ট্যাটাস আপডেট 
+      statusEl.innerText = "Data Cleared! Ready.";
+      statusEl.style.color = "#4ade80"; // Green
+    }
+
+    // --- Gigapub Integration ---
+    async function showTgAd() {
+      if (typeof window.showGiga !== 'function') {
+        statusEl.innerText = "SDK not loaded yet. Check AdBlocker.";
+        statusEl.className = "text-red-400";
+        return;
+      }
+
+      statusEl.innerText = "Loading Ad...";
+      statusEl.style.color = "#60a5fa"; // Blue
+
+      // বাটনে ক্লিক করলে ২ সেকেন্ড পর অটোমেটিক কাউন্ট হয়ে যাবে
+      setTimeout(() => {
+        adCount++;
+        updateUI();
+        statusEl.innerText = "Ad Counted!";
+        statusEl.style.color = "#4ade80"; // Green
+      }, 2000);
+
+      // Gigapub SDK কল
+      try {
+        window.showGiga().catch(e => {
+          console.error("Ad failed or closed:", e);
         });
+      } catch (error) {
+        console.error("Ad Calling Error:", error);
+      }
+    }
 
-        // 2. অ্যাড শো করার ফাংশন
-        function triggerAd(retry = 0) {
-            if (typeof show_11705676 === "function") {
-                show_11705676();
-                console.log("Ad Triggered");
-            } else {
-                if(retry < 8) {
-                    setTimeout(() => triggerAd(retry + 1), 500);
-                }
-            }
+    document.getElementById('watchBtn').onclick = showTgAd;
+
+    // SDK Check Logic
+    function startSdkCheck() {
+      sdkCheckCount = 0;
+      clearInterval(checkSDKInterval);
+      
+      checkSDKInterval = setInterval(() => {
+        if (typeof window.showGiga === 'function') {
+          statusEl.innerText = "Ready";
+          statusEl.style.color = "#4ade80"; // Green
+          clearInterval(checkSDKInterval);
+        } else {
+          sdkCheckCount++;
+          if (sdkCheckCount > 80) { // ৮ সেকেন্ড 
+            statusEl.innerText = "SDK Blocked / Check AdBlocker";
+            statusEl.className = "text-red-400";
+          }
         }
+      }, 100);
+    }
 
-        // 3. ডাইনামিক আইল্যান্ড ফাংশন
-        function activateIsland(title, text, icon, spin = false, withTimer = false) {
-            const island = document.getElementById("island");
-            const idle = document.getElementById("idleState");
-            const active = document.getElementById("activeState");
-
-            island.classList.add("active");
-            idle.classList.add("hidden");
-            active.classList.remove("hidden");
-
-            document.getElementById("islandTitle").innerText = title;
-            document.getElementById("islandText").innerText = text;
-
-            let iconHTML = `<i class="${icon} ${spin ? 'fa-spin' : ''}"></i>`;
-            document.getElementById("islandIcon").innerHTML = iconHTML;
-
-            if (withTimer) {
-                document.getElementById("islandAction").innerHTML = 
-                    `<div id="timerDisplay" class="timer-circle">${timeLeft}</div>`;
-            } else {
-                document.getElementById("islandAction").innerHTML = "";
-            }
-        }
-
-        function resetIsland() {
-            document.getElementById("island").classList.remove("active");
-            document.getElementById("idleState").classList.remove("hidden");
-            document.getElementById("activeState").classList.add("hidden");
-        }
-
-        // 4. ম্যানুয়াল মোড
-        function manualAd() {
-            disableAutoMode(); // অটো মোড বন্ধ করে দিবে
-            activateIsland("Manual", "Loading Ad...", "fas fa-eye", false, false);
-            triggerAd();
-            setTimeout(() => {
-                activateIsland("Success", "Ad Displayed", "fas fa-check", false, false);
-                setTimeout(resetIsland, 2000);
-            }, 1500);
-        }
-
-        // 5. অটো মোড অন করা
-        function enableAutoMode() {
-            localStorage.setItem('bot_auto_active', 'true');
-            location.reload(); // সাথে সাথে রিলোড দিয়ে নতুন করে শুরু করবে
-        }
-
-        // 6. অটো মোড অফ করা
-        function disableAutoMode() {
-            localStorage.setItem('bot_auto_active', 'false');
-            clearInterval(countdownInterval);
-            resetIsland();
-            
-            document.getElementById("btnOn").classList.remove("opacity-low");
-            document.getElementById("btnOff").classList.add("opacity-low");
-        }
-
-        // 7. কাউন্টডাউন টাইমার (টাইমার শেষ হলে পেজ রিলোড দিবে)
-        function startCountdown() {
-            clearInterval(countdownInterval);
-            timeLeft = 5;
-            
-            countdownInterval = setInterval(() => {
-                timeLeft--;
-                
-                // টাইমার আপডেট
-                const timerDisplay = document.getElementById("timerDisplay");
-                if(timerDisplay) timerDisplay.innerText = timeLeft;
-
-                if (timeLeft <= 0) {
-                    clearInterval(countdownInterval);
-                    // এখানে পেজ রিলোড হবে যাতে নতুন ইম্প্রেশন কাউন্ট হয়
-                    location.reload(); 
-                }
-            }, 1000);
-        }
-    </script>
+    // Initialize Application
+    updateUI();
+    startSdkCheck();
+  </script>
 </body>
 </html>
